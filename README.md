@@ -136,6 +136,7 @@ This Lib library package the following functions:
   - [rename](#Groups.rename)
   - [setDescription](#Groups.setDescription)
   - [setAnnouncement](#Groups.setAnnouncement)
+  - [setCustomFields](#Groups.setCustomFields)
   - [setPurpose](#Groups.setPurpose)
   - [setReadOnly](#Groups.setReadOnly)
   - [setTopic](#Groups.setTopic)
@@ -1783,7 +1784,7 @@ rocketChatClient.groups.setDescription(roomId, description, (err, body)=>{});
 }
 ```
 
-#### <a id="Groups.setAnnouncement"></a>set
+#### <a id="Groups.setAnnouncement"></a>setAnnouncement
 
 Sets the announcement for the group.
 
@@ -1798,6 +1799,43 @@ rocketChatClient.groups.setAnnouncement(roomId, announcement, (err, body)=>{});
 {
   "announcement": "Testing out everything.",
   "success": true
+}
+```
+
+#### <a id="Groups.setCustomFields"></a>setCustomFields
+
+Sets the custom fields for the private group.
+
+
+```js
+rocketChatClient.groups.setCustomFields(roomId, customFields, (err, body)=>{});
+```
+
+[Result (https://rocket.chat/docs/developer-guides/rest-api/groups/setcustomfields)](https://rocket.chat/docs/developer-guides/rest-api/groups/setcustomfields)
+
+```json
+{
+  "group":{
+    "_id":"euzoT67Gx6nXcn66M",
+    "name":"channel.cf.1518990680083",
+    "fname":"channel.cf.1518990680083",
+    "t":"p",
+    "msgs":0,
+    "u":{
+      "_id":"ew28FnZqipDpvKw3R",
+      "username":"rocketchat.internal.admin.test"
+    },
+    "customFields":{
+      "company":"sell-and-more"
+    },
+    "ts":"2018-02-18T21:51:20.091Z",
+    "ro":false,
+    "sysMes":true,
+    "_updatedAt":"2018-02-23T11:27:01.411Z",
+    "username":"rocketchat.internal.admin.test"
+  },
+  "success":true,
+  "developerWarning":"[WARNING]: The \"usernames\" field has been removed for performance reasons. Please use the \"*.members\" endpoint to get a list of members/users in a room."
 }
 ```
 
