@@ -135,6 +135,7 @@ This Lib library package the following functions:
   - [removeOwner](#Groups.removeOwner)
   - [rename](#Groups.rename)
   - [setDescription](#Groups.setDescription)
+  - [setAnnouncement](#Groups.setAnnouncement)
   - [setPurpose](#Groups.setPurpose)
   - [setReadOnly](#Groups.setReadOnly)
   - [setTopic](#Groups.setTopic)
