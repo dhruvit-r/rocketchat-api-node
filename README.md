@@ -1497,7 +1497,7 @@ rocketChatClient.groups.history(roomId, {0, 5}, (err, body)=>{});
 Retrieves the information about the private group, only if you’re part of the group.
 
 ```js
-rocketChatClient.groups.info(roomId, (err, body)=>{});
+rocketChatClient.groups.info(roomId, roomName, (err, body)=>{});
 ```
 
 [Result (https://rocket.chat/docs/developer-guides/rest-api/groups/info)](https://rocket.chat/docs/developer-guides/rest-api/groups/info)
@@ -1779,6 +1779,24 @@ rocketChatClient.groups.setDescription(roomId, description, (err, body)=>{});
 ```json
 {
   "description": "Testing out everything.",
+  "success": true
+}
+```
+
+#### <a id="Groups.setAnnouncement"></a>set
+
+Sets the announcement for the group.
+
+
+```js
+rocketChatClient.groups.setAnnouncement(roomId, announcement, (err, body)=>{});
+```
+
+[Result (https://rocket.chat/docs/developer-guides/rest-api/groups/setannouncement)](https://rocket.chat/docs/developer-guides/rest-api/groups/setannouncement)
+
+```json
+{
+  "announcement": "Testing out everything.",
   "success": true
 }
 ```
