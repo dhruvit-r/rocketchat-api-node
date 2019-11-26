@@ -208,6 +208,16 @@ describe("groups", () => {
             });
         });
 
+        it("Lists all of the private groups the calling user has joined, " +
+            "result should be success and groups size should greater than 0", () => {
+            return co(function *() {
+                let groupList = yield rocketChatClient.groups.listAll();
+                groupList.success.should.equal(true);
+
+                (groupList.groups.length > 0).should.equal(true);
+            });
+        });
+
         // ignore the test case , will throw a
         // RequestError: No private group by the id of: s7A5xQR3uysq9GNG3
         xit("Adds the private group back to the user’s list of private groups. result should be success", () => {

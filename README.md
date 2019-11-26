@@ -130,6 +130,7 @@ This Lib library package the following functions:
   - [kick](#Groups.kick)
   - [leave](#Groups.leave)
   - [list](#Groups.list)
+  - [list](#Groups.listAll)
   - [open](#Groups.open)
   - [removeModerator](#Groups.removeModerator)
   - [removeOwner](#Groups.removeOwner)
@@ -1684,6 +1685,59 @@ rocketChatClient.groups.list({ fields : { "name": 1 } }, (err, body)=>{});
     ],
     "success": true
 }
+```
+
+#### <a id="Groups.listAll"></a>list
+
+Lists all of the private groups of any users. The calling user requires to have ‘view-room-administration’ right. It supports the Offset, Count, and Sort Query Parameters along with just the Fields Query Parameters.
+
+```js
+// get the first items
+rocketChatClient.groups.listAll({}, (err, body)=>{});
+// get by offset and count
+// first 5 items
+rocketChatClient.groups.listAll({0, 5}, (err, body)=>{});
+// third page
+rocketChatClient.groups.listAll({10, 5}, (err, body)=>{});
+// find an item using mongo query syntax
+rocketChatClient.groups.listAll({ query : { "name": { "$regex": "thisreallydoesnotexist" } } }, (err, body)=>{});
+// sort using mongo sort syntax
+rocketChatClient.groups.listAll({ sort : { "_updatedAt": 1 } }, (err, body)=>{});
+// fielding using mongo field syntax
+rocketChatClient.groups.listAll({ fields : { "name": 1 } }, (err, body)=>{});
+
+```
+
+[Result (https://rocket.chat/docs/developer-guides/rest-api/groups/listall)](https://rocket.chat/docs/developer-guides/rest-api/groups/listall)
+
+```json
+{
+    "groups": [
+        {
+            "_id": "xA52DRDM7dqx2PfTp",
+            "name": "private1",
+            "fname": "private1",
+            "t": "p",
+            "msgs": 0,
+            "u": {
+                "_id": "3WpJQkDHhrWPBvXuW",
+                "username": "admin"
+            },
+            "customFields": {
+                "companyId": "org1"
+            },
+            "ts": "2018-01-21T21:05:06.729Z",
+            "ro": false,
+            "sysMes": true,
+            "_updatedAt": "2018-01-21T21:05:06.729Z"
+        }
+    ],
+    "offset": 0,
+    "count": 1,
+    "total": 1,
+    "success": true
+}
+
 ```
 
 #### <a id="Groups.open"></a>open
